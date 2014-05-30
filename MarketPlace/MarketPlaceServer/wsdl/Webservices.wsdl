@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://WebServices.EzCart.Lab2.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://WebServices.EzCart.Lab2.com" xmlns:intf="http://WebServices.EzCart.Lab2.com" xmlns:tns1="http://Models.EzCart.Lab2.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://WebServices.EzCart.Lab2.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://Models.EzCart.Lab2.com"/>
+   <element name="signUpUser">
+    <complexType>
+     <sequence>
+      <element name="firstname" type="xsd:string"/>
+      <element name="lastname" type="xsd:string"/>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="address" type="xsd:string"/>
+      <element name="email" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signUpUserResponse">
+    <complexType>
+     <sequence>
+      <element name="signUpUserReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getParticularProductsResultSet">
+    <complexType>
+     <sequence>
+      <element name="category_name" type="xsd:string"/>
+      <element name="username" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getParticularProductsResultSetResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getParticularProductsResultSetReturn" type="tns1:Products"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteProductsFromCart">
+    <complexType>
+     <sequence>
+      <element name="username" type="xsd:string"/>
+      <element name="product_name" type="xsd:string"/>
+      <element name="product_count" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteProductsFromCartResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteProductsFromCartReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="ajax_AddToCart">
+    <complexType>
+     <sequence>
+      <element name="username" type="xsd:string"/>
+      <element name="product_name" type="xsd:string"/>
+      <element name="product_count" type="xsd:int"/>
+      <element name="product_prize" type="xsd:int"/>
+      <element name="seller_name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="ajax_AddToCartResponse">
+    <complexType>
+     <sequence>
+      <element name="ajax_AddToCartReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="ajax_DisplayCart">
+    <complexType>
+     <sequence>
+      <element name="username" type="xsd:string"/>
+      <element name="page" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="ajax_DisplayCartResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="ajax_DisplayCartReturn" type="tns1:DisplayCart"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="displaySellProducts">
+    <complexType>
+     <sequence>
+      <element name="username" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="displaySellProductsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="displaySellProductsReturn" type="tns1:DisplayCart"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addToHistoryWS">
+    <complexType>
+     <sequence>
+      <element name="username" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addToHistoryWSResponse">
+    <complexType>
+     <sequence>
+      <element name="addToHistoryWSReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addProductWS">
+    <complexType>
+     <sequence>
+      <element name="product_name" type="xsd:string"/>
+      <element name="product_prize" type="xsd:int"/>
+      <element name="no_of_product" type="xsd:int"/>
+      <element name="product_desc" type="xsd:string"/>
+      <element name="category_name" type="xsd:string"/>
+      <element name="seller_name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addProductWSResponse">
+    <complexType/>
+   </element>
+   <element name="getCategoryResultSet">
+    <complexType/>
+   </element>
+   <element name="getCategoryResultSetResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getCategoryResultSetReturn" type="tns1:Category"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getProductsResultSet">
+    <complexType>
+     <sequence>
+      <element name="username" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getProductsResultSetResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getProductsResultSetReturn" type="tns1:Products"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loginUser">
+    <complexType>
+     <sequence>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loginUserResponse">
+    <complexType>
+     <sequence>
+      <element name="loginUserReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://Models.EzCart.Lab2.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Products">
+    <sequence>
+     <element name="category_name" nillable="true" type="xsd:string"/>
+     <element name="no_of_product" type="xsd:int"/>
+     <element name="product_desc" nillable="true" type="xsd:string"/>
+     <element name="product_id" type="xsd:int"/>
+     <element name="product_name" nillable="true" type="xsd:string"/>
+     <element name="product_price" type="xsd:int"/>
+     <element name="seller_name" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="DisplayCart">
+    <sequence>
+     <element name="cart_id" type="xsd:int"/>
+     <element name="product_count" type="xsd:int"/>
+     <element name="product_name" nillable="true" type="xsd:string"/>
+     <element name="product_prize" type="xsd:int"/>
+     <element name="seller_name" nillable="true" type="xsd:string"/>
+     <element name="username" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Category">
+    <sequence>
+     <element name="category_id" nillable="true" type="xsd:string"/>
+     <element name="category_name" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="ajax_AddToCartRequest">
+
+      <wsdl:part element="impl:ajax_AddToCart" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getProductsResultSetResponse">
+
+      <wsdl:part element="impl:getProductsResultSetResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCategoryResultSetResponse">
+
+      <wsdl:part element="impl:getCategoryResultSetResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ajax_DisplayCartRequest">
+
+      <wsdl:part element="impl:ajax_DisplayCart" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="displaySellProductsRequest">
+
+      <wsdl:part element="impl:displaySellProducts" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCategoryResultSetRequest">
+
+      <wsdl:part element="impl:getCategoryResultSet" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getParticularProductsResultSetRequest">
+
+      <wsdl:part element="impl:getParticularProductsResultSet" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addToHistoryWSResponse">
+
+      <wsdl:part element="impl:addToHistoryWSResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getProductsResultSetRequest">
+
+      <wsdl:part element="impl:getProductsResultSet" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loginUserResponse">
+
+      <wsdl:part element="impl:loginUserResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addProductWSResponse">
+
+      <wsdl:part element="impl:addProductWSResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signUpUserResponse">
+
+      <wsdl:part element="impl:signUpUserResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addToHistoryWSRequest">
+
+      <wsdl:part element="impl:addToHistoryWS" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteProductsFromCartRequest">
+
+      <wsdl:part element="impl:deleteProductsFromCart" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addProductWSRequest">
+
+      <wsdl:part element="impl:addProductWS" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getParticularProductsResultSetResponse">
+
+      <wsdl:part element="impl:getParticularProductsResultSetResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="displaySellProductsResponse">
+
+      <wsdl:part element="impl:displaySellProductsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loginUserRequest">
+
+      <wsdl:part element="impl:loginUser" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ajax_DisplayCartResponse">
+
+      <wsdl:part element="impl:ajax_DisplayCartResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteProductsFromCartResponse">
+
+      <wsdl:part element="impl:deleteProductsFromCartResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signUpUserRequest">
+
+      <wsdl:part element="impl:signUpUser" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ajax_AddToCartResponse">
+
+      <wsdl:part element="impl:ajax_AddToCartResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Webservices">
+
+      <wsdl:operation name="signUpUser">
+
+         <wsdl:input message="impl:signUpUserRequest" name="signUpUserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:signUpUserResponse" name="signUpUserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getParticularProductsResultSet">
+
+         <wsdl:input message="impl:getParticularProductsResultSetRequest" name="getParticularProductsResultSetRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getParticularProductsResultSetResponse" name="getParticularProductsResultSetResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteProductsFromCart">
+
+         <wsdl:input message="impl:deleteProductsFromCartRequest" name="deleteProductsFromCartRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteProductsFromCartResponse" name="deleteProductsFromCartResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ajax_AddToCart">
+
+         <wsdl:input message="impl:ajax_AddToCartRequest" name="ajax_AddToCartRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:ajax_AddToCartResponse" name="ajax_AddToCartResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ajax_DisplayCart">
+
+         <wsdl:input message="impl:ajax_DisplayCartRequest" name="ajax_DisplayCartRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:ajax_DisplayCartResponse" name="ajax_DisplayCartResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="displaySellProducts">
+
+         <wsdl:input message="impl:displaySellProductsRequest" name="displaySellProductsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:displaySellProductsResponse" name="displaySellProductsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addToHistoryWS">
+
+         <wsdl:input message="impl:addToHistoryWSRequest" name="addToHistoryWSRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addToHistoryWSResponse" name="addToHistoryWSResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addProductWS">
+
+         <wsdl:input message="impl:addProductWSRequest" name="addProductWSRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addProductWSResponse" name="addProductWSResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCategoryResultSet">
+
+         <wsdl:input message="impl:getCategoryResultSetRequest" name="getCategoryResultSetRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCategoryResultSetResponse" name="getCategoryResultSetResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getProductsResultSet">
+
+         <wsdl:input message="impl:getProductsResultSetRequest" name="getProductsResultSetRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getProductsResultSetResponse" name="getProductsResultSetResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="loginUser">
+
+         <wsdl:input message="impl:loginUserRequest" name="loginUserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:loginUserResponse" name="loginUserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="WebservicesSoapBinding" type="impl:Webservices">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="signUpUser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="signUpUserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="signUpUserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getParticularProductsResultSet">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getParticularProductsResultSetRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getParticularProductsResultSetResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteProductsFromCart">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteProductsFromCartRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteProductsFromCartResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ajax_AddToCart">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="ajax_AddToCartRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="ajax_AddToCartResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ajax_DisplayCart">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="ajax_DisplayCartRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="ajax_DisplayCartResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="displaySellProducts">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="displaySellProductsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="displaySellProductsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addToHistoryWS">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addToHistoryWSRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addToHistoryWSResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addProductWS">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addProductWSRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addProductWSResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCategoryResultSet">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCategoryResultSetRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCategoryResultSetResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getProductsResultSet">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getProductsResultSetRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getProductsResultSetResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="loginUser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="loginUserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="loginUserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="WebservicesService">
+
+      <wsdl:port binding="impl:WebservicesSoapBinding" name="Webservices">
+
+         <wsdlsoap:address location="http://localhost:8080/EzCart/services/Webservices"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

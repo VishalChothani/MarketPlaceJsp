@@ -1,0 +1,102 @@
+a {
+  color: #00B7FF;
+}
+
+body
+{
+	float : left;
+	width : 100%;
+	margin : 0px;
+	background-color : silver;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+header
+{
+	float : left;
+	width : 100%;
+	//background-color : blueviolet;
+}
+
+header h1
+{
+	text-align: center;
+}
+
+section
+{
+	clear : left;
+	float : left;
+	width : 100%;
+	//background-color : white;
+	height : 350px;	
+}
+
+h2
+{
+	text-align: center;
+}
+
+
+.inputArea
+{
+	float : left;
+	width : 60%;
+	height : 350px;	
+}
+
+.inputArea form.formInput
+{
+	float : left;
+	margin-left:30%;
+	border-width: 3px;
+border-color: black;
+border-style: solid;
+margin-bottom: 10%;
+}
+
+.formInput span
+{
+	float:left;	
+}
+
+.formInput span input
+{
+	margin-left: 10px;
+}
+
+.formInput input.button
+{
+	float:left;
+}
+
+aside
+{
+	float : left;
+	width : 40%;
+	//background-color : violet;
+	height : 350px;	
+}
+
+aside textarea
+{
+	margin-left: 33%;
+	height: 40%;
+	width: 34%;
+}
+
+footer
+{
+	clear : left;
+	float : left;
+	width : 100%;
+	//background-color : cadetblue;
+	height : 80px;	
+}
+
+#error
+{
+	float:left;
+	margin-left:33%;
+	color : red;
+}

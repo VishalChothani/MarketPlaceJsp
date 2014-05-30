@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://WebServices.MathSolver.Lab2.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://WebServices.MathSolver.Lab2.com" xmlns:intf="http://WebServices.MathSolver.Lab2.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://WebServices.MathSolver.Lab2.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="checkPrime">
+    <complexType>
+     <sequence>
+      <element name="userInput" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="checkPrimeResponse">
+    <complexType>
+     <sequence>
+      <element name="checkPrimeReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="primeSeries">
+    <complexType>
+     <sequence>
+      <element name="userInput" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="primeSeriesResponse">
+    <complexType>
+     <sequence>
+      <element name="primeSeriesReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="checkPrimeRequest">
+
+      <wsdl:part element="impl:checkPrime" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkPrimeResponse">
+
+      <wsdl:part element="impl:checkPrimeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="primeSeriesRequest">
+
+      <wsdl:part element="impl:primeSeries" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="primeSeriesResponse">
+
+      <wsdl:part element="impl:primeSeriesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="WebServices">
+
+      <wsdl:operation name="checkPrime">
+
+         <wsdl:input message="impl:checkPrimeRequest" name="checkPrimeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:checkPrimeResponse" name="checkPrimeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="primeSeries">
+
+         <wsdl:input message="impl:primeSeriesRequest" name="primeSeriesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:primeSeriesResponse" name="primeSeriesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="WebServicesSoapBinding" type="impl:WebServices">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="checkPrime">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="checkPrimeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="checkPrimeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="primeSeries">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="primeSeriesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="primeSeriesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="WebServicesService">
+
+      <wsdl:port binding="impl:WebServicesSoapBinding" name="WebServices">
+
+         <wsdlsoap:address location="http://localhost:8080/MathSolver/services/WebServices"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
